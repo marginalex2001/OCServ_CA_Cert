@@ -21,4 +21,10 @@ encryption_key
 EOF
 
 certtool --generate-certificate --load-privkey user-cert/${USERNAME}/${USERNAME}-privkey.pem --load-ca-certificate ${ORGANIZATION_NAME}-ca-cert.pem --load-ca-privkey ${ORGANIZATION_NAME}-ca-privkey.pem --template client-cert.cfg --outfile user-cert/${USERNAME}/${USERNAME}-cert.pem
-certtool --to-p12 --load-privkey user-cert/${USERNAME}/${USERNAME}-privkey.pem --load-certificate user-cert/${USERNAME}/${USERNAME}-cert.pem --pkcs-cipher aes-256 --outfile user-cert/${USERNAME}/${USERNAME}.p12 --outder
+
+if [ "$1" = "-A" ]; then
+    certtool --to-p12 --load-privkey user-cert/${USERNAME}/${USERNAME}-privkey.pem --load-certificate user-cert/${USERNAME}/${USERNAME}-cert.pem --pkcs-cipher 3des-pkcs12 --outfile user-cert/${USERNAME}/${USERNAME}.p12 --outder
+else
+    certtool --to-p12 --load-privkey user-cert/${USERNAME}/${USERNAME}-privkey.pem --load-certificate user-cert/${USERNAME}/${USERNAME}-cert.pem --pkcs-cipher aes-256 --outfile user-cert/${USERNAME}/${USERNAME}.p12 --outder
+fi
+
