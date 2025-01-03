@@ -25,3 +25,4 @@ EOF
 certtool --generate-self-signed --load-privkey ${ORGANIZATION_NAME}-ca-privkey.pem --template ca-cert.cfg --outfile ${ORGANIZATION_NAME}-ca-cert.pem
 
 echo "ca-cert = /etc/ocserv/ssl/${ORGANIZATION_NAME}-ca-cert.pem" >> /etc/ocserv/ocserv.conf
+systemctl restart ocserv
