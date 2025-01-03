@@ -56,7 +56,7 @@ sudo -s
 # Установка сертификата:
 Чтобы скачать сертификат на устройстве клиента выполните:
 ```bash
-scp -P<Порт (по умолчанию 22)> <user>@<IP-address>:/etc/ocserv/ssl/<Username>/<Username>.p12 .
+scp -P<Порт (по умолчанию 22)> <user>@<IP-address>:/etc/ocserv/ssl/user-cert/<Username>/<Username>.p12 .
 ```
 
 
