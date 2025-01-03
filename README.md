@@ -35,7 +35,7 @@ sudo -s
 ```
 ./Create_User_Cert.sh
 ```
-> [!info]
+> [!NOTE]
 > Для пользователей Huawei и IOS используйте флаг `-A`:
 > ```
 > ./Create_User_Cert.sh -A
@@ -57,4 +57,11 @@ sudo -s
 Чтобы скачать сертификат на устройстве клиента выполните:
 ```bash
 scp -P<Порт (по умолчанию 22)> <user>@<IP-address>:/etc/ocserv/ssl/<Username>/<Username>.p12 .
+```
+
+
+Установите в конфигурации `/etc/ocserv/ocserv.conf` следующие параметры:
+```bash
+enable-auth = "plain[passwd=/etc/ocserv/ocpasswd]"
+auth = "certificate"
 ```
